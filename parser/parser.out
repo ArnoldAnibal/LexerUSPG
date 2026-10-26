@@ -1,0 +1,1156 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    OP_INC_DEC
+    OP_LOGICO
+    PR_FUNCION
+    PR_PARA
+    PR_RETORNAR
+    PR_SINO
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement_list -> statement
+Rule 4     statement -> declaration
+Rule 5     statement -> assignment
+Rule 6     statement -> if_stmt
+Rule 7     statement -> while_stmt
+Rule 8     statement -> print_stmt
+Rule 9     declaration -> tipo_dato ID SEMI
+Rule 10    declaration -> tipo_dato ID ASIGNACION expression SEMI
+Rule 11    tipo_dato -> PR_ENTERO
+Rule 12    tipo_dato -> PR_DECIMAL
+Rule 13    tipo_dato -> PR_CADENA
+Rule 14    tipo_dato -> PR_BOOL
+Rule 15    assignment -> ID ASIGNACION expression SEMI
+Rule 16    assignment -> ID OP_ASIG_COMP expression SEMI
+Rule 17    print_stmt -> PR_IMPRIMIR expression SEMI
+Rule 18    expression -> expression OP_ARIT expression
+Rule 19    expression -> expression OP_MODULO expression
+Rule 20    expression -> expression OP_POTENCIA expression
+Rule 21    expression -> expression OP_REL expression
+Rule 22    expression -> LPAREN expression RPAREN
+Rule 23    expression -> NUMERO
+Rule 24    expression -> NUM_DECIMAL
+Rule 25    expression -> LIT_CADENA
+Rule 26    expression -> LIT_BOOLEANO
+Rule 27    expression -> ID
+Rule 28    if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+Rule 29    while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+
+Terminals, with rules where they appear
+
+ASIGNACION           : 10 15
+ID                   : 9 10 15 16 27
+LBRACE               : 28 29
+LIT_BOOLEANO         : 26
+LIT_CADENA           : 25
+LPAREN               : 22 28 29
+NUMERO               : 23
+NUM_DECIMAL          : 24
+OP_ARIT              : 18
+OP_ASIG_COMP         : 16
+OP_INC_DEC           : 
+OP_LOGICO            : 
+OP_MODULO            : 19
+OP_POTENCIA          : 20
+OP_REL               : 21
+PR_BOOL              : 14
+PR_CADENA            : 13
+PR_DECIMAL           : 12
+PR_ENTERO            : 11
+PR_FUNCION           : 
+PR_IMPRIMIR          : 17
+PR_MIENTRAS          : 29
+PR_PARA              : 
+PR_RETORNAR          : 
+PR_SI                : 28
+PR_SINO              : 
+RBRACE               : 28 29
+RPAREN               : 22 28 29
+SEMI                 : 9 10 15 16 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment           : 5
+declaration          : 4
+expression           : 10 15 16 17 18 18 19 19 20 20 21 21 22 28 29
+if_stmt              : 6
+print_stmt           : 8
+program              : 0
+statement            : 2 3
+statement_list       : 1 2 28 29
+tipo_dato            : 9 10
+while_stmt           : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . if_stmt
+    (7) statement -> . while_stmt
+    (8) statement -> . print_stmt
+    (9) declaration -> . tipo_dato ID SEMI
+    (10) declaration -> . tipo_dato ID ASIGNACION expression SEMI
+    (15) assignment -> . ID ASIGNACION expression SEMI
+    (16) assignment -> . ID OP_ASIG_COMP expression SEMI
+    (28) if_stmt -> . PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (29) while_stmt -> . PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (17) print_stmt -> . PR_IMPRIMIR expression SEMI
+    (11) tipo_dato -> . PR_ENTERO
+    (12) tipo_dato -> . PR_DECIMAL
+    (13) tipo_dato -> . PR_CADENA
+    (14) tipo_dato -> . PR_BOOL
+
+    ID              shift and go to state 10
+    PR_SI           shift and go to state 11
+    PR_MIENTRAS     shift and go to state 12
+    PR_IMPRIMIR     shift and go to state 13
+    PR_ENTERO       shift and go to state 14
+    PR_DECIMAL      shift and go to state 15
+    PR_CADENA       shift and go to state 16
+    PR_BOOL         shift and go to state 17
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    print_stmt                     shift and go to state 8
+    tipo_dato                      shift and go to state 9
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . if_stmt
+    (7) statement -> . while_stmt
+    (8) statement -> . print_stmt
+    (9) declaration -> . tipo_dato ID SEMI
+    (10) declaration -> . tipo_dato ID ASIGNACION expression SEMI
+    (15) assignment -> . ID ASIGNACION expression SEMI
+    (16) assignment -> . ID OP_ASIG_COMP expression SEMI
+    (28) if_stmt -> . PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (29) while_stmt -> . PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (17) print_stmt -> . PR_IMPRIMIR expression SEMI
+    (11) tipo_dato -> . PR_ENTERO
+    (12) tipo_dato -> . PR_DECIMAL
+    (13) tipo_dato -> . PR_CADENA
+    (14) tipo_dato -> . PR_BOOL
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    ID              shift and go to state 10
+    PR_SI           shift and go to state 11
+    PR_MIENTRAS     shift and go to state 12
+    PR_IMPRIMIR     shift and go to state 13
+    PR_ENTERO       shift and go to state 14
+    PR_DECIMAL      shift and go to state 15
+    PR_CADENA       shift and go to state 16
+    PR_BOOL         shift and go to state 17
+
+    statement                      shift and go to state 18
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    print_stmt                     shift and go to state 8
+    tipo_dato                      shift and go to state 9
+
+state 3
+
+    (3) statement_list -> statement .
+
+    ID              reduce using rule 3 (statement_list -> statement .)
+    PR_SI           reduce using rule 3 (statement_list -> statement .)
+    PR_MIENTRAS     reduce using rule 3 (statement_list -> statement .)
+    PR_IMPRIMIR     reduce using rule 3 (statement_list -> statement .)
+    PR_ENTERO       reduce using rule 3 (statement_list -> statement .)
+    PR_DECIMAL      reduce using rule 3 (statement_list -> statement .)
+    PR_CADENA       reduce using rule 3 (statement_list -> statement .)
+    PR_BOOL         reduce using rule 3 (statement_list -> statement .)
+    $end            reduce using rule 3 (statement_list -> statement .)
+    RBRACE          reduce using rule 3 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> declaration .
+
+    ID              reduce using rule 4 (statement -> declaration .)
+    PR_SI           reduce using rule 4 (statement -> declaration .)
+    PR_MIENTRAS     reduce using rule 4 (statement -> declaration .)
+    PR_IMPRIMIR     reduce using rule 4 (statement -> declaration .)
+    PR_ENTERO       reduce using rule 4 (statement -> declaration .)
+    PR_DECIMAL      reduce using rule 4 (statement -> declaration .)
+    PR_CADENA       reduce using rule 4 (statement -> declaration .)
+    PR_BOOL         reduce using rule 4 (statement -> declaration .)
+    $end            reduce using rule 4 (statement -> declaration .)
+    RBRACE          reduce using rule 4 (statement -> declaration .)
+
+
+state 5
+
+    (5) statement -> assignment .
+
+    ID              reduce using rule 5 (statement -> assignment .)
+    PR_SI           reduce using rule 5 (statement -> assignment .)
+    PR_MIENTRAS     reduce using rule 5 (statement -> assignment .)
+    PR_IMPRIMIR     reduce using rule 5 (statement -> assignment .)
+    PR_ENTERO       reduce using rule 5 (statement -> assignment .)
+    PR_DECIMAL      reduce using rule 5 (statement -> assignment .)
+    PR_CADENA       reduce using rule 5 (statement -> assignment .)
+    PR_BOOL         reduce using rule 5 (statement -> assignment .)
+    $end            reduce using rule 5 (statement -> assignment .)
+    RBRACE          reduce using rule 5 (statement -> assignment .)
+
+
+state 6
+
+    (6) statement -> if_stmt .
+
+    ID              reduce using rule 6 (statement -> if_stmt .)
+    PR_SI           reduce using rule 6 (statement -> if_stmt .)
+    PR_MIENTRAS     reduce using rule 6 (statement -> if_stmt .)
+    PR_IMPRIMIR     reduce using rule 6 (statement -> if_stmt .)
+    PR_ENTERO       reduce using rule 6 (statement -> if_stmt .)
+    PR_DECIMAL      reduce using rule 6 (statement -> if_stmt .)
+    PR_CADENA       reduce using rule 6 (statement -> if_stmt .)
+    PR_BOOL         reduce using rule 6 (statement -> if_stmt .)
+    $end            reduce using rule 6 (statement -> if_stmt .)
+    RBRACE          reduce using rule 6 (statement -> if_stmt .)
+
+
+state 7
+
+    (7) statement -> while_stmt .
+
+    ID              reduce using rule 7 (statement -> while_stmt .)
+    PR_SI           reduce using rule 7 (statement -> while_stmt .)
+    PR_MIENTRAS     reduce using rule 7 (statement -> while_stmt .)
+    PR_IMPRIMIR     reduce using rule 7 (statement -> while_stmt .)
+    PR_ENTERO       reduce using rule 7 (statement -> while_stmt .)
+    PR_DECIMAL      reduce using rule 7 (statement -> while_stmt .)
+    PR_CADENA       reduce using rule 7 (statement -> while_stmt .)
+    PR_BOOL         reduce using rule 7 (statement -> while_stmt .)
+    $end            reduce using rule 7 (statement -> while_stmt .)
+    RBRACE          reduce using rule 7 (statement -> while_stmt .)
+
+
+state 8
+
+    (8) statement -> print_stmt .
+
+    ID              reduce using rule 8 (statement -> print_stmt .)
+    PR_SI           reduce using rule 8 (statement -> print_stmt .)
+    PR_MIENTRAS     reduce using rule 8 (statement -> print_stmt .)
+    PR_IMPRIMIR     reduce using rule 8 (statement -> print_stmt .)
+    PR_ENTERO       reduce using rule 8 (statement -> print_stmt .)
+    PR_DECIMAL      reduce using rule 8 (statement -> print_stmt .)
+    PR_CADENA       reduce using rule 8 (statement -> print_stmt .)
+    PR_BOOL         reduce using rule 8 (statement -> print_stmt .)
+    $end            reduce using rule 8 (statement -> print_stmt .)
+    RBRACE          reduce using rule 8 (statement -> print_stmt .)
+
+
+state 9
+
+    (9) declaration -> tipo_dato . ID SEMI
+    (10) declaration -> tipo_dato . ID ASIGNACION expression SEMI
+
+    ID              shift and go to state 19
+
+
+state 10
+
+    (15) assignment -> ID . ASIGNACION expression SEMI
+    (16) assignment -> ID . OP_ASIG_COMP expression SEMI
+
+    ASIGNACION      shift and go to state 20
+    OP_ASIG_COMP    shift and go to state 21
+
+
+state 11
+
+    (28) if_stmt -> PR_SI . LPAREN expression RPAREN LBRACE statement_list RBRACE
+
+    LPAREN          shift and go to state 22
+
+
+state 12
+
+    (29) while_stmt -> PR_MIENTRAS . LPAREN expression RPAREN LBRACE statement_list RBRACE
+
+    LPAREN          shift and go to state 23
+
+
+state 13
+
+    (17) print_stmt -> PR_IMPRIMIR . expression SEMI
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 24
+
+state 14
+
+    (11) tipo_dato -> PR_ENTERO .
+
+    ID              reduce using rule 11 (tipo_dato -> PR_ENTERO .)
+
+
+state 15
+
+    (12) tipo_dato -> PR_DECIMAL .
+
+    ID              reduce using rule 12 (tipo_dato -> PR_DECIMAL .)
+
+
+state 16
+
+    (13) tipo_dato -> PR_CADENA .
+
+    ID              reduce using rule 13 (tipo_dato -> PR_CADENA .)
+
+
+state 17
+
+    (14) tipo_dato -> PR_BOOL .
+
+    ID              reduce using rule 14 (tipo_dato -> PR_BOOL .)
+
+
+state 18
+
+    (2) statement_list -> statement_list statement .
+
+    ID              reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_SI           reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_MIENTRAS     reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_IMPRIMIR     reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_ENTERO       reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_DECIMAL      reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_CADENA       reduce using rule 2 (statement_list -> statement_list statement .)
+    PR_BOOL         reduce using rule 2 (statement_list -> statement_list statement .)
+    $end            reduce using rule 2 (statement_list -> statement_list statement .)
+    RBRACE          reduce using rule 2 (statement_list -> statement_list statement .)
+
+
+state 19
+
+    (9) declaration -> tipo_dato ID . SEMI
+    (10) declaration -> tipo_dato ID . ASIGNACION expression SEMI
+
+    SEMI            shift and go to state 31
+    ASIGNACION      shift and go to state 32
+
+
+state 20
+
+    (15) assignment -> ID ASIGNACION . expression SEMI
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 33
+
+state 21
+
+    (16) assignment -> ID OP_ASIG_COMP . expression SEMI
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 34
+
+state 22
+
+    (28) if_stmt -> PR_SI LPAREN . expression RPAREN LBRACE statement_list RBRACE
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 35
+
+state 23
+
+    (29) while_stmt -> PR_MIENTRAS LPAREN . expression RPAREN LBRACE statement_list RBRACE
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 36
+
+state 24
+
+    (17) print_stmt -> PR_IMPRIMIR expression . SEMI
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            shift and go to state 37
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 25
+
+    (22) expression -> LPAREN . expression RPAREN
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 42
+
+state 26
+
+    (23) expression -> NUMERO .
+
+    SEMI            reduce using rule 23 (expression -> NUMERO .)
+    OP_ARIT         reduce using rule 23 (expression -> NUMERO .)
+    OP_MODULO       reduce using rule 23 (expression -> NUMERO .)
+    OP_POTENCIA     reduce using rule 23 (expression -> NUMERO .)
+    OP_REL          reduce using rule 23 (expression -> NUMERO .)
+    RPAREN          reduce using rule 23 (expression -> NUMERO .)
+
+
+state 27
+
+    (24) expression -> NUM_DECIMAL .
+
+    SEMI            reduce using rule 24 (expression -> NUM_DECIMAL .)
+    OP_ARIT         reduce using rule 24 (expression -> NUM_DECIMAL .)
+    OP_MODULO       reduce using rule 24 (expression -> NUM_DECIMAL .)
+    OP_POTENCIA     reduce using rule 24 (expression -> NUM_DECIMAL .)
+    OP_REL          reduce using rule 24 (expression -> NUM_DECIMAL .)
+    RPAREN          reduce using rule 24 (expression -> NUM_DECIMAL .)
+
+
+state 28
+
+    (25) expression -> LIT_CADENA .
+
+    SEMI            reduce using rule 25 (expression -> LIT_CADENA .)
+    OP_ARIT         reduce using rule 25 (expression -> LIT_CADENA .)
+    OP_MODULO       reduce using rule 25 (expression -> LIT_CADENA .)
+    OP_POTENCIA     reduce using rule 25 (expression -> LIT_CADENA .)
+    OP_REL          reduce using rule 25 (expression -> LIT_CADENA .)
+    RPAREN          reduce using rule 25 (expression -> LIT_CADENA .)
+
+
+state 29
+
+    (26) expression -> LIT_BOOLEANO .
+
+    SEMI            reduce using rule 26 (expression -> LIT_BOOLEANO .)
+    OP_ARIT         reduce using rule 26 (expression -> LIT_BOOLEANO .)
+    OP_MODULO       reduce using rule 26 (expression -> LIT_BOOLEANO .)
+    OP_POTENCIA     reduce using rule 26 (expression -> LIT_BOOLEANO .)
+    OP_REL          reduce using rule 26 (expression -> LIT_BOOLEANO .)
+    RPAREN          reduce using rule 26 (expression -> LIT_BOOLEANO .)
+
+
+state 30
+
+    (27) expression -> ID .
+
+    SEMI            reduce using rule 27 (expression -> ID .)
+    OP_ARIT         reduce using rule 27 (expression -> ID .)
+    OP_MODULO       reduce using rule 27 (expression -> ID .)
+    OP_POTENCIA     reduce using rule 27 (expression -> ID .)
+    OP_REL          reduce using rule 27 (expression -> ID .)
+    RPAREN          reduce using rule 27 (expression -> ID .)
+
+
+state 31
+
+    (9) declaration -> tipo_dato ID SEMI .
+
+    ID              reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_SI           reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_MIENTRAS     reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_IMPRIMIR     reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_ENTERO       reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_DECIMAL      reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_CADENA       reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    PR_BOOL         reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    $end            reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+    RBRACE          reduce using rule 9 (declaration -> tipo_dato ID SEMI .)
+
+
+state 32
+
+    (10) declaration -> tipo_dato ID ASIGNACION . expression SEMI
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 43
+
+state 33
+
+    (15) assignment -> ID ASIGNACION expression . SEMI
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            shift and go to state 44
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 34
+
+    (16) assignment -> ID OP_ASIG_COMP expression . SEMI
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            shift and go to state 45
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 35
+
+    (28) if_stmt -> PR_SI LPAREN expression . RPAREN LBRACE statement_list RBRACE
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    RPAREN          shift and go to state 46
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 36
+
+    (29) while_stmt -> PR_MIENTRAS LPAREN expression . RPAREN LBRACE statement_list RBRACE
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    RPAREN          shift and go to state 47
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 37
+
+    (17) print_stmt -> PR_IMPRIMIR expression SEMI .
+
+    ID              reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_SI           reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_MIENTRAS     reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_IMPRIMIR     reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_ENTERO       reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_DECIMAL      reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_CADENA       reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    PR_BOOL         reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    $end            reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+    RBRACE          reduce using rule 17 (print_stmt -> PR_IMPRIMIR expression SEMI .)
+
+
+state 38
+
+    (18) expression -> expression OP_ARIT . expression
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 48
+
+state 39
+
+    (19) expression -> expression OP_MODULO . expression
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 49
+
+state 40
+
+    (20) expression -> expression OP_POTENCIA . expression
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 50
+
+state 41
+
+    (21) expression -> expression OP_REL . expression
+    (18) expression -> . expression OP_ARIT expression
+    (19) expression -> . expression OP_MODULO expression
+    (20) expression -> . expression OP_POTENCIA expression
+    (21) expression -> . expression OP_REL expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMERO
+    (24) expression -> . NUM_DECIMAL
+    (25) expression -> . LIT_CADENA
+    (26) expression -> . LIT_BOOLEANO
+    (27) expression -> . ID
+
+    LPAREN          shift and go to state 25
+    NUMERO          shift and go to state 26
+    NUM_DECIMAL     shift and go to state 27
+    LIT_CADENA      shift and go to state 28
+    LIT_BOOLEANO    shift and go to state 29
+    ID              shift and go to state 30
+
+    expression                     shift and go to state 51
+
+state 42
+
+    (22) expression -> LPAREN expression . RPAREN
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    RPAREN          shift and go to state 52
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 43
+
+    (10) declaration -> tipo_dato ID ASIGNACION expression . SEMI
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            shift and go to state 53
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+    OP_REL          shift and go to state 41
+
+
+state 44
+
+    (15) assignment -> ID ASIGNACION expression SEMI .
+
+    ID              reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_SI           reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_MIENTRAS     reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_IMPRIMIR     reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_ENTERO       reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_DECIMAL      reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_CADENA       reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    PR_BOOL         reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    $end            reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+    RBRACE          reduce using rule 15 (assignment -> ID ASIGNACION expression SEMI .)
+
+
+state 45
+
+    (16) assignment -> ID OP_ASIG_COMP expression SEMI .
+
+    ID              reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_SI           reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_MIENTRAS     reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_IMPRIMIR     reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_ENTERO       reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_DECIMAL      reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_CADENA       reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    PR_BOOL         reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    $end            reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+    RBRACE          reduce using rule 16 (assignment -> ID OP_ASIG_COMP expression SEMI .)
+
+
+state 46
+
+    (28) if_stmt -> PR_SI LPAREN expression RPAREN . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 54
+
+
+state 47
+
+    (29) while_stmt -> PR_MIENTRAS LPAREN expression RPAREN . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 55
+
+
+state 48
+
+    (18) expression -> expression OP_ARIT expression .
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            reduce using rule 18 (expression -> expression OP_ARIT expression .)
+    OP_ARIT         reduce using rule 18 (expression -> expression OP_ARIT expression .)
+    OP_REL          reduce using rule 18 (expression -> expression OP_ARIT expression .)
+    RPAREN          reduce using rule 18 (expression -> expression OP_ARIT expression .)
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+
+  ! OP_MODULO       [ reduce using rule 18 (expression -> expression OP_ARIT expression .) ]
+  ! OP_POTENCIA     [ reduce using rule 18 (expression -> expression OP_ARIT expression .) ]
+  ! OP_ARIT         [ shift and go to state 38 ]
+  ! OP_REL          [ shift and go to state 41 ]
+
+
+state 49
+
+    (19) expression -> expression OP_MODULO expression .
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            reduce using rule 19 (expression -> expression OP_MODULO expression .)
+    OP_ARIT         reduce using rule 19 (expression -> expression OP_MODULO expression .)
+    OP_MODULO       reduce using rule 19 (expression -> expression OP_MODULO expression .)
+    OP_POTENCIA     reduce using rule 19 (expression -> expression OP_MODULO expression .)
+    OP_REL          reduce using rule 19 (expression -> expression OP_MODULO expression .)
+    RPAREN          reduce using rule 19 (expression -> expression OP_MODULO expression .)
+
+  ! OP_ARIT         [ shift and go to state 38 ]
+  ! OP_MODULO       [ shift and go to state 39 ]
+  ! OP_POTENCIA     [ shift and go to state 40 ]
+  ! OP_REL          [ shift and go to state 41 ]
+
+
+state 50
+
+    (20) expression -> expression OP_POTENCIA expression .
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            reduce using rule 20 (expression -> expression OP_POTENCIA expression .)
+    OP_ARIT         reduce using rule 20 (expression -> expression OP_POTENCIA expression .)
+    OP_MODULO       reduce using rule 20 (expression -> expression OP_POTENCIA expression .)
+    OP_POTENCIA     reduce using rule 20 (expression -> expression OP_POTENCIA expression .)
+    OP_REL          reduce using rule 20 (expression -> expression OP_POTENCIA expression .)
+    RPAREN          reduce using rule 20 (expression -> expression OP_POTENCIA expression .)
+
+  ! OP_ARIT         [ shift and go to state 38 ]
+  ! OP_MODULO       [ shift and go to state 39 ]
+  ! OP_POTENCIA     [ shift and go to state 40 ]
+  ! OP_REL          [ shift and go to state 41 ]
+
+
+state 51
+
+    (21) expression -> expression OP_REL expression .
+    (18) expression -> expression . OP_ARIT expression
+    (19) expression -> expression . OP_MODULO expression
+    (20) expression -> expression . OP_POTENCIA expression
+    (21) expression -> expression . OP_REL expression
+
+    SEMI            reduce using rule 21 (expression -> expression OP_REL expression .)
+    OP_REL          reduce using rule 21 (expression -> expression OP_REL expression .)
+    RPAREN          reduce using rule 21 (expression -> expression OP_REL expression .)
+    OP_ARIT         shift and go to state 38
+    OP_MODULO       shift and go to state 39
+    OP_POTENCIA     shift and go to state 40
+
+  ! OP_ARIT         [ reduce using rule 21 (expression -> expression OP_REL expression .) ]
+  ! OP_MODULO       [ reduce using rule 21 (expression -> expression OP_REL expression .) ]
+  ! OP_POTENCIA     [ reduce using rule 21 (expression -> expression OP_REL expression .) ]
+  ! OP_REL          [ shift and go to state 41 ]
+
+
+state 52
+
+    (22) expression -> LPAREN expression RPAREN .
+
+    SEMI            reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    OP_ARIT         reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    OP_MODULO       reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    OP_POTENCIA     reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    OP_REL          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+
+
+state 53
+
+    (10) declaration -> tipo_dato ID ASIGNACION expression SEMI .
+
+    ID              reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_SI           reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_MIENTRAS     reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_IMPRIMIR     reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_ENTERO       reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_DECIMAL      reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_CADENA       reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    PR_BOOL         reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    $end            reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+    RBRACE          reduce using rule 10 (declaration -> tipo_dato ID ASIGNACION expression SEMI .)
+
+
+state 54
+
+    (28) if_stmt -> PR_SI LPAREN expression RPAREN LBRACE . statement_list RBRACE
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . if_stmt
+    (7) statement -> . while_stmt
+    (8) statement -> . print_stmt
+    (9) declaration -> . tipo_dato ID SEMI
+    (10) declaration -> . tipo_dato ID ASIGNACION expression SEMI
+    (15) assignment -> . ID ASIGNACION expression SEMI
+    (16) assignment -> . ID OP_ASIG_COMP expression SEMI
+    (28) if_stmt -> . PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (29) while_stmt -> . PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (17) print_stmt -> . PR_IMPRIMIR expression SEMI
+    (11) tipo_dato -> . PR_ENTERO
+    (12) tipo_dato -> . PR_DECIMAL
+    (13) tipo_dato -> . PR_CADENA
+    (14) tipo_dato -> . PR_BOOL
+
+    ID              shift and go to state 10
+    PR_SI           shift and go to state 11
+    PR_MIENTRAS     shift and go to state 12
+    PR_IMPRIMIR     shift and go to state 13
+    PR_ENTERO       shift and go to state 14
+    PR_DECIMAL      shift and go to state 15
+    PR_CADENA       shift and go to state 16
+    PR_BOOL         shift and go to state 17
+
+    statement_list                 shift and go to state 56
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    print_stmt                     shift and go to state 8
+    tipo_dato                      shift and go to state 9
+
+state 55
+
+    (29) while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE . statement_list RBRACE
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . if_stmt
+    (7) statement -> . while_stmt
+    (8) statement -> . print_stmt
+    (9) declaration -> . tipo_dato ID SEMI
+    (10) declaration -> . tipo_dato ID ASIGNACION expression SEMI
+    (15) assignment -> . ID ASIGNACION expression SEMI
+    (16) assignment -> . ID OP_ASIG_COMP expression SEMI
+    (28) if_stmt -> . PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (29) while_stmt -> . PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (17) print_stmt -> . PR_IMPRIMIR expression SEMI
+    (11) tipo_dato -> . PR_ENTERO
+    (12) tipo_dato -> . PR_DECIMAL
+    (13) tipo_dato -> . PR_CADENA
+    (14) tipo_dato -> . PR_BOOL
+
+    ID              shift and go to state 10
+    PR_SI           shift and go to state 11
+    PR_MIENTRAS     shift and go to state 12
+    PR_IMPRIMIR     shift and go to state 13
+    PR_ENTERO       shift and go to state 14
+    PR_DECIMAL      shift and go to state 15
+    PR_CADENA       shift and go to state 16
+    PR_BOOL         shift and go to state 17
+
+    statement_list                 shift and go to state 57
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    print_stmt                     shift and go to state 8
+    tipo_dato                      shift and go to state 9
+
+state 56
+
+    (28) if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list . RBRACE
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . if_stmt
+    (7) statement -> . while_stmt
+    (8) statement -> . print_stmt
+    (9) declaration -> . tipo_dato ID SEMI
+    (10) declaration -> . tipo_dato ID ASIGNACION expression SEMI
+    (15) assignment -> . ID ASIGNACION expression SEMI
+    (16) assignment -> . ID OP_ASIG_COMP expression SEMI
+    (28) if_stmt -> . PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (29) while_stmt -> . PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (17) print_stmt -> . PR_IMPRIMIR expression SEMI
+    (11) tipo_dato -> . PR_ENTERO
+    (12) tipo_dato -> . PR_DECIMAL
+    (13) tipo_dato -> . PR_CADENA
+    (14) tipo_dato -> . PR_BOOL
+
+    RBRACE          shift and go to state 58
+    ID              shift and go to state 10
+    PR_SI           shift and go to state 11
+    PR_MIENTRAS     shift and go to state 12
+    PR_IMPRIMIR     shift and go to state 13
+    PR_ENTERO       shift and go to state 14
+    PR_DECIMAL      shift and go to state 15
+    PR_CADENA       shift and go to state 16
+    PR_BOOL         shift and go to state 17
+
+    statement                      shift and go to state 18
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    print_stmt                     shift and go to state 8
+    tipo_dato                      shift and go to state 9
+
+state 57
+
+    (29) while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list . RBRACE
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . if_stmt
+    (7) statement -> . while_stmt
+    (8) statement -> . print_stmt
+    (9) declaration -> . tipo_dato ID SEMI
+    (10) declaration -> . tipo_dato ID ASIGNACION expression SEMI
+    (15) assignment -> . ID ASIGNACION expression SEMI
+    (16) assignment -> . ID OP_ASIG_COMP expression SEMI
+    (28) if_stmt -> . PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (29) while_stmt -> . PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE
+    (17) print_stmt -> . PR_IMPRIMIR expression SEMI
+    (11) tipo_dato -> . PR_ENTERO
+    (12) tipo_dato -> . PR_DECIMAL
+    (13) tipo_dato -> . PR_CADENA
+    (14) tipo_dato -> . PR_BOOL
+
+    RBRACE          shift and go to state 59
+    ID              shift and go to state 10
+    PR_SI           shift and go to state 11
+    PR_MIENTRAS     shift and go to state 12
+    PR_IMPRIMIR     shift and go to state 13
+    PR_ENTERO       shift and go to state 14
+    PR_DECIMAL      shift and go to state 15
+    PR_CADENA       shift and go to state 16
+    PR_BOOL         shift and go to state 17
+
+    statement                      shift and go to state 18
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    print_stmt                     shift and go to state 8
+    tipo_dato                      shift and go to state 9
+
+state 58
+
+    (28) if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .
+
+    ID              reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_SI           reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_MIENTRAS     reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_IMPRIMIR     reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_ENTERO       reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_DECIMAL      reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_CADENA       reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_BOOL         reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    $end            reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 28 (if_stmt -> PR_SI LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+
+
+state 59
+
+    (29) while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .
+
+    ID              reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_SI           reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_MIENTRAS     reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_IMPRIMIR     reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_ENTERO       reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_DECIMAL      reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_CADENA       reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    PR_BOOL         reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    $end            reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 29 (while_stmt -> PR_MIENTRAS LPAREN expression RPAREN LBRACE statement_list RBRACE .)
+
