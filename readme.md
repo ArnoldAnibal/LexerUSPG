@@ -53,3 +53,20 @@ El compilador incluye pruebas automatizadas que se pueden ejecutar directamente 
 
 ```bash
 python main.py
+---
+
+## 5. Documentación de la Tabla de Símbolos y Resultados de Pruebas
+
+### A. Documentación de la Tabla de Símbolos (`TablaSimbolos`)
+La tabla de símbolos se implementó en el módulo `semantic/tabla_simbolos.py` bajo una estructura de diccionario clave-valor para la gestión de identificadores y sus tipos de datos en el ámbito actual:
+- **`declarar(nombre, tipo)`**: Registra una nueva variable verificando previamente que no exista duplicidad en el ámbito (lanza un error semántico si la variable ya fue declarada).
+- **`buscar(nombre)`**: Consulta la existencia de una variable y retorna su tipo de dato asociado, asegurando que no se utilicen variables sin declarar previamente.
+
+---
+
+### B. Resultados de las Pruebas y Evidencias
+
+El proyecto fue probado ejecutando el script principal `main.py`, evaluando escenarios de éxito, errores sintácticos, errores semánticos y el uso de extensiones personales:
+
+```bash
+python main.py
