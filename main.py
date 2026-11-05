@@ -3,6 +3,7 @@ import sys
 import os
 from lexer.lexer import Lexer
 from parser.parser import parser
+from semantic.analizador import AnalizadorSemantico
 
 class PLYTokenAdapter:
     """Adaptador para traducir los tokens del Lexer personalizado a los tipos esperados por PLY sin modificar el lexer."""
@@ -50,11 +51,16 @@ def ejecutar_prueba(nombre_prueba, codigo):
         ast = parser.parse(lexer=adapter)
         
         if ast:
-            print("¡ÉXITO! Análisis sintáctico completado y AST generado correctamente.\n")
+            print("¡ÉXITO! Análisis sintáctico completado y AST generado correctamente.")
+            
+            # --- FASE DE ANÁLISIS SEMÁNTICO ---
+            semantico = AnalizadorSemantico()
+            semantico.visitar(ast)
+            print("¡ÉXITO! Análisis semántico completado correctamente.\n")
         else:
             print("FALLO: No se generó el AST.\n")
     except Exception as e:
-        print(f"EXCEPCIÓN ENCONTRADA: {e}\n")
+        print(f"EXCEPCIÓN / ERROR DETECTADO: {e}\n")
 
 def main():
     valido = """
@@ -85,6 +91,20 @@ si (activo == verdadero) {
 }
 """
 
+    valido_sem = """
+entero x = 10;
+decimal pi = 3.14;
+booleano activo = verdadero;
+si (activo == verdadero) {
+    pi += 1.0;
+}
+"""
+
+    error_sem = """
+entero x = 10;
+y = 20;
+"""
+
     if len(sys.argv) > 1:
         ruta = sys.argv[1]
         if os.path.exists(ruta):
@@ -97,6 +117,8 @@ si (activo == verdadero) {
         ejecutar_prueba("valido.txt", valido)
         ejecutar_prueba("error.txt", con_error)
         ejecutar_prueba("extension.txt", extension)
+        ejecutar_prueba("valido_sem.txt", valido_sem)
+        ejecutar_prueba("error_sem.txt", error_sem)
 
 if __name__ == "__main__":
     main()

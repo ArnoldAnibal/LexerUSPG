@@ -1,0 +1,2 @@
+entero x = "texto_invalido"; // Error de tipo
+y = 5;                       // Error: variable 'y' no declarada
